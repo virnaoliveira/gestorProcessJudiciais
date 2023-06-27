@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand logo" [routerLink]="['/caixaEntrada', this.parametro]">
+            <img src="assets/img/tobias.jpg" alt="" width="30" height="24">
+            <strong>Tobias</strong> Organizador
+        </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+              <a class="nav-link active" aria-current="page" [routerLink]="['/processos', this.parametro]">Processos Judiciais</a>
+          </li> 
+          <li class="nav-item dropdown" dropdown>
+            <a id="button-basic" dropdownToggle class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" 
+            aria-expanded="false" style="cursor: pointer; color: black;">Caixas</a>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/caixaEntrada', this.parametro]">Entrada</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" [routerLink]="['/caixaSaida', this.parametro]">Saída</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" [routerLink]="['/caixaArquivados', this.parametro]">Arquivados</a></li>
+            </ul>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Sair</a>
+          </li>   
+        </ul>  
+      </div>
+    </div>
+  </nav>

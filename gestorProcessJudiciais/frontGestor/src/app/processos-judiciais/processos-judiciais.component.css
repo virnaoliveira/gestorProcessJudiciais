@@ -1,0 +1,22 @@
+.cardProcess{
+    padding: 20px;
+    background-color: #D9D9D9;
+}
+
+.titulo{
+    padding: 10px;
+}
+
+.iconEdit{
+    color: green;
+    padding-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.iconApaga{
+    color: red;
+    padding-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}

@@ -5,6 +5,7 @@ namespace gestorProcessJudiciais.Services
     public interface IUserService
     {
         Users Create(Users user);
-        Users FindById(long id);
+        Users FindUser(string Usuario, string Senha);
+        List<Users> FindAll();
     }
 }

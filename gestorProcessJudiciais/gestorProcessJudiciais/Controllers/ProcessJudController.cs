@@ -15,29 +15,43 @@ namespace gestorProcessJudiciais.Controllers
             _processJudService = processJudService;
         }
 
-        [HttpGet("process/{alocacao}")]
-        public IActionResult Get(int alocacao)
-        {
-            var local = _processJudService.FindByLocal(alocacao);
-            if (local == null) return NotFound();
-            return Ok(local);
+        [HttpGet("ProcessJud")]
+        public IActionResult Get()
+        { 
+            return Ok(_processJudService.FindAll());
         }
 
-        [HttpPost("processosJudiciais")]
+        [HttpGet("ProcessJud/{id}")]
+        public IActionResult Get(long id)
+        {
+            var processo = _processJudService.FindById(id);
+            if (processo == null) return NotFound();
+            return Ok(processo);
+        }
+
+        [HttpGet("ProcessJud/{usuario}/{caixa}")]
+        public IActionResult Get(string usuario, int caixa)
+        {
+            var caixas = _processJudService.FindByCaixa(usuario, caixa);
+            if (caixas == null) return NotFound();
+            return Ok(caixas);
+        }
+
+        [HttpPost("ProcessJud")]
         public IActionResult Post([FromBody] ProcessosJudiciais processosJudiciais)
         {
             if (processosJudiciais == null) return BadRequest();
             return Ok(_processJudService.Create(processosJudiciais));
         }
 
-        [HttpPut("ProcessJud")]
+        [HttpPut("ProcessJud/{id}")]
         public IActionResult Put([FromBody] ProcessosJudiciais processosJudiciais)
         {
             if (processosJudiciais == null) return BadRequest();
             return Ok(_processJudService.Update(processosJudiciais));
         }
 
-        [HttpDelete("ProcessJud")]
+        [HttpDelete("ProcessJud/{id}")]
         public IActionResult Delete(long id)
         {
             _processJudService.Delete(id);

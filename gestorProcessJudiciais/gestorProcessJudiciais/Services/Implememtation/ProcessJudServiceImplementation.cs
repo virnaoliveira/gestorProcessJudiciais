@@ -12,11 +12,6 @@ namespace gestorProcessJudiciais.Services.Implememtation
             _context = context;
         }
 
-        public ProcessosJudiciais FindByLocal(int alocacao)
-        {
-            return _context.ProcessosJudiciais.SingleOrDefault(p => p.Alocacao.Equals(alocacao));
-        }
-
         public ProcessosJudiciais Create(ProcessosJudiciais processosJudiciais)
         {
             try
@@ -70,6 +65,22 @@ namespace gestorProcessJudiciais.Services.Implememtation
                     throw;
                 }
             }
+        }
+
+        public ProcessosJudiciais FindById(long id)
+        {
+            return _context.ProcessosJudiciais.SingleOrDefault(p => p.Id.Equals(id));
+        }
+
+        public IEnumerable<ProcessosJudiciais> FindByCaixa(string usuario, int caixa)
+        {
+            return _context.ProcessosJudiciais.Where(p => p.Caixa.Equals(caixa) && p.Usuario.Equals(usuario));
+        }
+
+
+        public List<ProcessosJudiciais> FindAll()
+        {
+            return _context.ProcessosJudiciais.ToList();
         }
     }
 }

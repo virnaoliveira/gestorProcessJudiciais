@@ -1,0 +1,15 @@
+.cardProcess{
+    padding: 20px;
+    background-color: #D9D9D9;
+}
+
+.titulo{
+    padding: 10px;
+}
+
+.icon{
+    padding-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+

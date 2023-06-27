@@ -6,7 +6,9 @@ namespace gestorProcessJudiciais.Services
     {
         ProcessosJudiciais Create(ProcessosJudiciais processosJudiciais);
         ProcessosJudiciais Update(ProcessosJudiciais processosJudiciais);
-        ProcessosJudiciais FindByLocal(int Alocacao);
+        ProcessosJudiciais FindById(long id);
+        IEnumerable<ProcessosJudiciais> FindByCaixa(string usuario, int caixa);
+        List<ProcessosJudiciais> FindAll();
         void Delete(long id);
     }
 }

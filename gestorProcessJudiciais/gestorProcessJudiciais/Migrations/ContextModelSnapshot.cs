@@ -18,16 +18,52 @@ namespace gestorProcessJudiciais.Migrations
                 .HasAnnotation("ProductVersion", "7.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("gestorProcessJudiciais.Models.Caixas", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Caixas");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Nome = "Entrada"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Nome = "Saída"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            Nome = "Arquivados"
+                        });
+                });
+
             modelBuilder.Entity("gestorProcessJudiciais.Models.ProcessosJudiciais", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    b.Property<int>("Alocacao")
+                    b.Property<int>("Caixa")
                         .HasColumnType("int");
 
                     b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NProcesso")
                         .IsRequired()
                         .HasColumnType("longtext");
 
