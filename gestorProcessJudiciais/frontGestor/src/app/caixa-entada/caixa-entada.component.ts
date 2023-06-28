@@ -78,7 +78,6 @@ export class CaixaEntadaComponent {
 
   Tramitar(): void {
     const novoUsuario = this.selectedUser;
-    console.log(this.numeroProcess,this.parametro,novoUsuario);
 
     this.caixaEntradaService.ProcessoNum(this.numeroProcess,this.parametro).subscribe(resultado =>{       
       const nomeProcesso = resultado.nomeDoProcesso;
@@ -95,7 +94,37 @@ export class CaixaEntadaComponent {
         const processo: ProcessosJudiciais = proces;
         this.caixaEntradaService.AtualizrProcesso(processo)
           .subscribe((resultado) => {})
-      } else {
+
+          const process2 = {
+            id : 0,
+            nProcesso: this.numeroProcess,
+            nomeDoProcesso: nomeProcesso,
+            descricao: desc,
+            caixa: 1,
+            usuario: novoUsuario
+          };
+    
+          this.caixaEntradaService.CadastrarProcesso(process2).subscribe(
+            (resultado) => {
+              this.modalRef?.hide();
+              alert('Processo tramitado com sucesso!');
+              this.caixaEntradaService.caixaArqv(this.parametro, 1).subscribe(
+                resultado => {
+                  if (Array.isArray(resultado)) {
+                    this.todosProceJud = resultado;
+                  } else {
+                    this.todosProceJud = [resultado];
+                  }
+                }
+              ); 
+            },
+            (error) => {
+              alert('Ocorreu um erro. Por favor, tente novamente.');
+            }
+          )
+      
+      } 
+      if(resultado.caixa==2) {
         const proces = {
           id : resultado.id,
           nProcesso: resultado.nProcesso,
@@ -108,34 +137,6 @@ export class CaixaEntadaComponent {
         this.caixaEntradaService.AtualizrProcesso(processo)
           .subscribe((resultado) => {})
       }
-
-      const proces = {
-        id : 0,
-        nProcesso: this.numeroProcess,
-        nomeDoProcesso: nomeProcesso,
-        descricao: desc,
-        caixa: 1,
-        usuario: novoUsuario
-      };
-
-      this.caixaEntradaService.CadastrarProcesso(proces).subscribe(
-        (resultado) => {
-          this.modalRef?.hide();
-          alert('Processo tramitado com sucesso!');
-          this.caixaEntradaService.caixaArqv(this.parametro, 1).subscribe(
-            resultado => {
-              if (Array.isArray(resultado)) {
-                this.todosProceJud = resultado;
-              } else {
-                this.todosProceJud = [resultado];
-              }
-            }
-          ); 
-        },
-        (error) => {
-          alert('Ocorreu um erro. Por favor, tente novamente.');
-        }
-      )
 
     })
     
