@@ -34,5 +34,9 @@ namespace gestorProcessJudiciais.Services.Implememtation
             return _context.Users.ToList();
         }
 
+        public Users FindById(string usuario)
+        {
+            return _context.Users.SingleOrDefault(p => p.Usuario.Equals(usuario));
+        }
     }
 }

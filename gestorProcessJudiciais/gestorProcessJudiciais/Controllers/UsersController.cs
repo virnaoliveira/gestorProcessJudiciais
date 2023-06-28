@@ -36,5 +36,13 @@ namespace gestorProcessJudiciais.Controllers
             return Ok(_userService.FindAll());
         }
 
+        [HttpGet("users/{usuario}")]
+        public IActionResult Get(string usuario)
+        {
+            var processo = _userService.FindById(usuario);
+            if (processo == null) return NotFound();
+            return Ok(processo);
+        }
+
     }
 }

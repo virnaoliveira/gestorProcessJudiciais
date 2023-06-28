@@ -7,5 +7,6 @@ namespace gestorProcessJudiciais.Services
         Users Create(Users user);
         Users FindUser(string Usuario, string Senha);
         List<Users> FindAll();
+        Users FindById(string usuario);
     }
 }
