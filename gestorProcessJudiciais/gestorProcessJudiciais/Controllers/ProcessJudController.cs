@@ -29,6 +29,14 @@ namespace gestorProcessJudiciais.Controllers
             return Ok(processo);
         }
 
+        [HttpGet("ProcessJud/nProcesso/{nProcesso}/{usuario}")]
+        public IActionResult Get(string nProcesso, string usuario)
+        {
+            var processo = _processJudService.FindByNProcess(nProcesso, usuario);
+            if (processo == null) return NotFound();
+            return Ok(processo);
+        }
+
         [HttpGet("ProcessJud/{usuario}/{caixa}")]
         public IActionResult Get(string usuario, int caixa)
         {

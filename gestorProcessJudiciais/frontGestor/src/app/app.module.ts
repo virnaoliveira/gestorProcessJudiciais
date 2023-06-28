@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,7 +40,8 @@ import { LoginService } from './login/login.service';
     HttpClientModule,
     CommonModule,
     ReactiveFormsModule,
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    FormsModule
   ],
   providers: [HttpClientModule, LoginService],
   bootstrap: [AppComponent]

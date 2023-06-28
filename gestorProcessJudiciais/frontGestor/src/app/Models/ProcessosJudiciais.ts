@@ -3,7 +3,7 @@ export class ProcessosJudiciais {
     nProcesso: string;
     nomeDoProcesso: string;
     descricao: string;
-    Caixa: number;
+    caixa: number;
     usuario: string;
   
     constructor() {
@@ -11,7 +11,7 @@ export class ProcessosJudiciais {
       this.nProcesso = '';
       this.nomeDoProcesso = '';
       this.descricao = '';
-      this.Caixa = 0;
+      this.caixa = 0;
       this.usuario = '';
     }
   }

@@ -38,14 +38,13 @@ export class CadProcessosComponent {
   }
 
   enviarForms(): void {
-    console.log(this.usuario);
     if(this.idProcess=="0"){
       const processo = {
         id : 0,
         nProcesso: this.formulario.get('nProcesso').value,
         nomeDoProcesso: this.formulario.get('nomeDoProcesso').value,
         descricao: this.formulario.get('descricao').value,
-        Caixa: 1,
+        caixa: 1,
         usuario: this.usuario
       };
 
@@ -68,7 +67,7 @@ export class CadProcessosComponent {
           nProcesso: this.formulario.get('nProcesso').value,
           nomeDoProcesso: this.formulario.get('nomeDoProcesso').value,
           descricao: this.formulario.get('descricao').value,
-          Caixa: resultado.Caixa,
+          caixa: resultado.caixa,
           usuario: resultado.usuario
         };
 

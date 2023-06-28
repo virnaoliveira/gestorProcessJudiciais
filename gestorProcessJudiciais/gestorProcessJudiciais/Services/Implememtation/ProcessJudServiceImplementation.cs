@@ -82,5 +82,10 @@ namespace gestorProcessJudiciais.Services.Implememtation
         {
             return _context.ProcessosJudiciais.ToList();
         }
+
+        public ProcessosJudiciais FindByNProcess(string nProcesso, string usuario)
+        {
+            return _context.ProcessosJudiciais.SingleOrDefault(p => p.NProcesso.Equals(nProcesso) && p.Usuario.Equals(usuario));
+        }
     }
 }

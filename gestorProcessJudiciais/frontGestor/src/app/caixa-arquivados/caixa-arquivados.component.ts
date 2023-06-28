@@ -46,7 +46,7 @@ export class CaixaArquivadosComponent implements OnInit {
         nProcesso: resultado.nProcesso,
         nomeDoProcesso: resultado.nomeDoProcesso,
         descricao: resultado.descricao,
-        Caixa: 1,
+        caixa: 1,
         usuario: resultado.usuario
       };
 
